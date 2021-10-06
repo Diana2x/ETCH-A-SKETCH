@@ -1,5 +1,5 @@
 * {
-  background-color: #000000;
+  background-color: #191919;
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -54,14 +54,14 @@
 .color_button:hover {
   cursor: pointer;
 }
-#black,
+#dark,
 #rainbow,
 #warm,
 #pastel {
   margin-left: 10px;
   margin-right: 10px;
 }
-#black:hover {
+#dark:hover {
   border: 2px solid rgb(255, 255, 255);
   box-shadow: 5px 5px 5px #a3a3a3;
 }
@@ -105,10 +105,11 @@ footer {
   width: 100vw;
   height: 30px;
   bottom: 0;
-  background-color: rgb(246, 179, 255);
+  background-color: #bcf2ff;
+  border-top: 4px solid rgb(59, 222, 255);
 }
 footer p {
   margin-top: 5px;
   color: black;
-  background-color: rgb(246, 179, 255);
+  background-color: #bcf2ff;
 }
