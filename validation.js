@@ -1,5 +1,15 @@
 let container = document.querySelector('.container'); 
 
+function removeStyles(buttons){
+    buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            if(button.classList.contains("active")){
+                button.classList.remove("active");
+            }
+        })
+    })
+};
+
 
 function createGrid(gridSize){
     container.innerHTML = '';
@@ -18,50 +28,62 @@ function changeGrid(){
     const sizeButtons = document.querySelectorAll(".canvas_button")
     sizeButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
+            removeStyles(sizeButtons);
             const gridID = e.currentTarget.id; 
             if(gridID == "ten"){
                 createGrid(10);
+                sizeButtons[0].classList.add("gridActive");
             } else if(gridID == "thirty"){
                 createGrid(30); 
+                sizeButtons[1].classList.add("gridActive");
             }else if (gridID == "fifty"){
                 createGrid(50);
+                sizeButtons[2].classList.add("gridActive");
             }
         });
     });
 };
 
 
-/*
-function generateColor(colorArr){
-    const dark = ["#733c04", "#170c00", "#021627", "#4f5b66"]; 
-    const rainbow = ["#ff0000", "#f0ff00", "#0fff00", "#0046ce", "#9900c9"]; 
-    const warm = ["#bf9000", "#744700", "#ffe599", "#b6d7a8", "#f6b26b"];
-    const pastel = ["#ffbde8", "#bde8ff", "#e8ffbd", "#ffe8bd", "#e8bdff"]
+
+function generateColor(colorMode, colorArr){
     const gridDiv = document.querySelectorAll(".container > div");
     gridDiv.forEach((item) => {
-        const randomColor = colorArr(Math.floor(Math.random() * colorArr.length);
-    });
-    item.addEventListener("mouseover", (e) => {
-        e.target.style.background = randomColor; 
-    });
-    
+        if(colorMode === "dark" || colorMode === "rainbow" || colorMode === "warm" || colorMode === "pastel"){
+        const randomColor = colorArr[Math.floor(Math.random() * colorArr.length)];
+        item.addEventListener("mouseenter", (e) => {
+            e.target.style.background = randomColor; 
+        });
+        }
+    });   
 }
-*/
+
 
 function chooseColor(){
     const colorButtons = document.querySelectorAll(".color_button");
     colorButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
-            const currentColor = e.currentTarget.id;
-            button.style.boxShadow = "5px 5px 5px white" // change to a const class and toggle 
-            console.log(currentColor); // Change to call generate color 
+            removeStyles(colorButtons);
+            const colorMode = e.currentTarget.id; 
+            if( colorMode === "dark") {
+                colorButtons[0].classList.add("darkActive")
+                generateColor("dark", ["#733c04", "#170c00", "#021627", "#4f5b66"]);
+            }else if(colorMode === "rainbow"){
+                colorButtons[1].classList.add("rainbowActive")
+                generateColor("rainbow",["#ff0000", "#f0ff00", "#0fff00", "#0046ce", "#9900c9"]);
+            } else if (colorMode === "warm"){
+                colorButtons[2].classList.add("warmActive")
+                generateColor("warm", ["#a16c01", "#99183c", "#704044", "#5b0b2c", "#5b0b2c"]);
+            } else if (colorMode === "pastel"){
+                colorButtons[3].classList.add("pastelActive")
+                generateColor("pastel",["#ffaae9", "#bcffff", "#ffeea9", "#a6ffbd", "#dffd80"]);
+            }
         });
      });
 };
 
 
-
-
+// generateColor() is also working function 
 chooseColor(); // Working Function
 createGrid(10); // working function
 changeGrid(); // working function

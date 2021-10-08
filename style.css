@@ -78,6 +78,28 @@
   box-shadow: 5px 5px 5px #9fc5e8;
 }
 
+.gridActive {
+  border: 2px solid rgb(200, 255, 0);
+  box-shadow: 5px 5px 5px #2bff00;
+}
+
+.darkActive {
+  border: 2px solid rgb(255, 255, 255);
+  box-shadow: 5px 5px 5px #a3a3a3;
+}
+.rainbowActive {
+  box-shadow: 5px 5px 5px #d330e9;
+  border: 2px solid rgb(255, 12, 154);
+}
+.warmActive {
+  box-shadow: 5px 5px 5px #ffca7b;
+  border: 2px solid rgb(240, 108, 32);
+}
+.pastelActive {
+  border: 2px solid rgb(1, 255, 255);
+  box-shadow: 5px 5px 5px #9fc5e8;
+}
+
 .container {
   display: grid;
 }
