@@ -79,8 +79,8 @@
 }
 
 .active {
-  border: 2px solid rgb(200, 255, 0);
-  box-shadow: 5px 5px 5px #2bff00;
+  border: 2px solid rgb(1, 255, 255);
+  box-shadow: 5px 5px 5px #fc9cff;
 }
 
 .container {
